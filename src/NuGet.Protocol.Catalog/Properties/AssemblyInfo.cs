@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("NuGet.Protocol.Catalog")]
 [assembly: ComVisible(false)]
 [assembly: Guid("d44c2e89-2d98-44bd-8712-8ccbe4e67c9c")]
 

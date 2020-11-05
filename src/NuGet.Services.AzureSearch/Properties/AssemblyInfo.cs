@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("NuGet.Services.AzureSearch")]
 [assembly: ComVisible(false)]
 [assembly: Guid("1a53fe3d-8041-4773-942f-d73aef5b82b2")]
 
