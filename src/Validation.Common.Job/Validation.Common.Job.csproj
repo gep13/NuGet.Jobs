@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
+
+    <RootNamespace>NuGet.Jobs.Validation</RootNamespace>
+    <AssemblyName>NuGet.Services.Validation.Common.Job</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
