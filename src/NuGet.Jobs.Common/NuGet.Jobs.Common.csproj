@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
 
     <RootNamespace>NuGet.Jobs</RootNamespace>
 
@@ -9,6 +9,19 @@
     <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
   </PropertyGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <Compile Remove="Configuration\JobConfigurationManager.cs" />
+    <Compile Remove="Configuration\MessageServiceConfiguration.cs" />
+    <Compile Remove="DelegateSqlConnectionFactory.cs" />
+    <Compile Remove="Extensions\LoggerExtensions.cs" />
+    <Compile Remove="JobBase.cs" />
+    <Compile Remove="JobRunner.cs" />
+    <Compile Remove="JsonConfigurationJob.cs" />
+    <Compile Remove="MessageServiceConfiguration.cs" />
+    <Compile Remove="SecretReader\ISecretReaderFactory.cs" />
+    <Compile Remove="SecretReader\SecretReaderFactory.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection">
@@ -28,6 +41,9 @@
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions">
       <Version>2.2.0</Version>
     </PackageReference>
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
     <PackageReference Include="NuGet.Services.Configuration">
       <Version>2.75.0</Version>
     </PackageReference>
