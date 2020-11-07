@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// Copyright (c) .NET Foundation. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NuGet.Services.AzureSearch.SearchService;
 using NuGet.Versioning;
@@ -11,7 +14,6 @@ using System.Threading.Tasks;
 namespace NuGet.Services.SearchService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class SearchController : ControllerBase
     {
         private static readonly NuGetVersion SemVer2Level = new NuGetVersion("2.0.0");
