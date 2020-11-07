@@ -8,19 +8,6 @@
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
-    <Compile Remove="AzureSearchJob.cs" />
-    <Compile Remove="Catalog2AzureSearch\AzureSearchCollectorLogic.cs" />
-    <Compile Remove="Catalog2AzureSearch\Catalog2AzureSearchCommand.cs" />
-    <Compile Remove="Catalog2AzureSearch\CatalogIndexActionBuilder.cs" />
-    <Compile Remove="Catalog2AzureSearch\DocumentFixUp.cs" />
-    <Compile Remove="Catalog2AzureSearch\DocumentFixUpEvaluator.cs" />
-    <Compile Remove="Catalog2AzureSearch\ICatalogIndexActionBuilder.cs" />
-    <Compile Remove="Catalog2AzureSearch\IDocumentFixUpEvaluator.cs" />
-    <Compile Remove="Db2AzureSearch\Db2AzureSearchCommand.cs" />
-    <Compile Remove="DependencyInjectionExtensions.cs" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="MicroBuild.Core">
       <Version>0.3.0</Version>

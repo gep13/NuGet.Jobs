@@ -11,20 +11,13 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
     <Compile Remove="AppendOnlyCatalogItem.cs" />
     <Compile Remove="AppendOnlyCatalogWriter.cs" />
-    <Compile Remove="CatalogCommit.cs" />
-    <Compile Remove="CatalogCommitItem.cs" />
-    <Compile Remove="CatalogCommitItemBatch.cs" />
     <Compile Remove="CatalogCommitItemBatchTask.cs" />
     <Compile Remove="CatalogCommitUtilities.cs" />
     <Compile Remove="CatalogContext.cs" />
-    <Compile Remove="CatalogIndexEntry.cs" />
     <Compile Remove="CatalogIndexReader.cs" />
     <Compile Remove="CatalogItem.cs" />
     <Compile Remove="CatalogItemSummary.cs" />
     <Compile Remove="CatalogWriterBase.cs" />
-    <Compile Remove="CollectorBase.cs" />
-    <Compile Remove="CollectorHttpClient.cs" />
-    <Compile Remove="CommitCollector.cs" />
     <Compile Remove="CreateCommitItemBatchesAsync.cs" />
     <Compile Remove="DeleteCatalogItem.cs" />
     <Compile Remove="Dnx\DnxCatalogCollector.cs" />
@@ -35,9 +28,7 @@
     <Compile Remove="Helpers\CatalogWriterHelper.cs" />
     <Compile Remove="Helpers\FeedHelpers.cs" />
     <Compile Remove="Helpers\GalleryDatabaseQueryService.cs" />
-    <Compile Remove="Helpers\Utils.cs" />
     <Compile Remove="Helpers\XsltHelper.cs" />
-    <Compile Remove="HttpReadCursor.cs" />
     <Compile Remove="ICatalogGraphPersistence.cs" />
     <Compile Remove="ICatalogIndexProcessor.cs" />
     <Compile Remove="Icons\CatalogLeafDataProcessor.cs" />
@@ -45,7 +36,6 @@
     <Compile Remove="Icons\IconProcessor.cs" />
     <Compile Remove="Icons\IconsCollector.cs" />
     <Compile Remove="IPackageCatalogItemCreator.cs" />
-    <Compile Remove="IPackagesContainerHandler.cs" />
     <Compile Remove="JsonLdIntegration\JsonLdReader.cs" />
     <Compile Remove="JsonLdIntegration\JsonLdWriter.cs" />
     <Compile Remove="PackageCatalog.cs" />
@@ -58,9 +48,6 @@
     <Compile Remove="ReadOnlyGraph.cs" />
     <Compile Remove="SortingCollector.cs" />
     <Compile Remove="SortingIdVersionCollector.cs" />
-    <Compile Remove="Telemetry\ITelemetryService.cs" />
-    <Compile Remove="Telemetry\TelemetryHandler.cs" />
-    <Compile Remove="Telemetry\TelemetryService.cs" />
     <Compile Remove="ValidatePackageHashHandler.cs" />
   </ItemGroup>
 

@@ -258,7 +258,7 @@ namespace NuGet.Services.AzureSearch.SearchService
             {
                 // Expand tags by their delimiters
                 case QueryField.Tag:
-                    return values.SelectMany(TagUtils.SplitTags).Distinct();
+                    return values.SelectMany(Utils.SplitTags).Distinct();
 
                 // The "version" query field should be normalized if possible.
                 case QueryField.Version:

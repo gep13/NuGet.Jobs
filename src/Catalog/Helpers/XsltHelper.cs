@@ -19,7 +19,7 @@ namespace NuGet.Services.Metadata.Catalog
 
         public XPathNavigator Split(string original)
         {
-            var fields = TagUtils.SplitTags(original);
+            var fields = Utils.SplitTags(original);
 
             XmlDocument xmlDoc = Utils.SafeCreateXmlDocument();
             XmlElement root = xmlDoc.CreateElement("list");

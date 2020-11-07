@@ -8,14 +8,6 @@
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
-    <Compile Remove="CommitCollectorHost.cs" />
-    <Compile Remove="CommitCollectorUtility.cs" />
-    <Compile Remove="DependencyInjectionExtensions.cs" />
-    <Compile Remove="ICommitCollectorLogic.cs" />
-    <Compile Remove="V3TelemetryService.cs" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="MicroBuild.Core">
       <Version>0.3.0</Version>

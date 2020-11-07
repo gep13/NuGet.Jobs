@@ -14,13 +14,15 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Xsl;
-using JsonLD.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NuGet.Services.Metadata.Catalog.Helpers;
+#if NETFRAMEWORK
+using JsonLD.Core;
 using NuGet.Services.Metadata.Catalog.JsonLDIntegration;
 using VDS.RDF;
 using VDS.RDF.Parsing;
+#endif
 
 namespace NuGet.Services.Metadata.Catalog
 {
@@ -31,6 +33,19 @@ namespace NuGet.Services.Metadata.Catalog
 
         private static readonly Lazy<XslCompiledTransform> XslTransformNuSpecCache = new Lazy<XslCompiledTransform>(() => SafeLoadXslTransform(XslTransformNuSpec));
         private static readonly Lazy<XslCompiledTransform> XslTransformNormalizeNuSpecNamespaceCache = new Lazy<XslCompiledTransform>(() => SafeLoadXslTransform(XslTransformNormalizeNuSpecNamespace));
+
+        private static readonly char[] TagTrimChars = { ',', ' ', '\t', '|', ';' };
+
+        public static string[] SplitTags(string original)
+        {
+            var fields = original
+                .Split(TagTrimChars)
+                .Select(w => w.Trim(TagTrimChars))
+                .Where(w => w.Length > 0)
+                .ToArray();
+
+            return fields;
+        }
 
         public static Stream GetResourceStream(string resourceName)
         {
@@ -46,6 +61,7 @@ namespace NuGet.Services.Metadata.Catalog
             return assembly.GetManifestResourceStream($"{name}.{resourceName}");
         }
 
+#if NETFRAMEWORK
         public static IGraph CreateNuspecGraph(XDocument nuspec, string baseAddress, bool normalizeXml = false)
         {
             XsltArgumentList arguments = new XsltArgumentList();
@@ -69,6 +85,7 @@ namespace NuGet.Services.Metadata.Catalog
 
             return graph;
         }
+#endif
 
         private static void NormalizeXml(XmlNode xmlNode)
         {
@@ -152,6 +169,7 @@ namespace NuGet.Services.Metadata.Catalog
             return null;
         }
 
+#if NETFRAMEWORK
         public static JToken CreateJson(IGraph graph, JToken frame = null)
         {
             System.IO.StringWriter writer = new System.IO.StringWriter();
@@ -254,6 +272,7 @@ namespace NuGet.Services.Metadata.Catalog
                 }
             }
         }
+#endif
 
         public static Uri Expand(JToken context, string term)
         {
@@ -272,6 +291,7 @@ namespace NuGet.Services.Metadata.Catalog
             return new Uri(context["@vocab"] + term);
         }
 
+#if NETFRAMEWORK
         //  where the property exists on the graph being merged in remove it from the existing graph
         public static void RemoveExistingProperties(IGraph existingGraph, IGraph graphToMerge, Uri[] properties)
         {
@@ -290,6 +310,7 @@ namespace NuGet.Services.Metadata.Catalog
                 }
             }
         }
+#endif
 
         public static string GenerateHash(Stream stream)
         {
@@ -356,6 +377,7 @@ namespace NuGet.Services.Metadata.Catalog
             }
         }
 
+#if NETFRAMEWORK
         public static PackageCatalogItem CreateCatalogItem(
             string origin,
             Stream stream,
@@ -389,6 +411,7 @@ namespace NuGet.Services.Metadata.Catalog
                 throw new Exception(string.Format("Exception processsing {0}", origin), e);
             }
         }
+#endif
 
         public static void TraceException(Exception e)
         {
