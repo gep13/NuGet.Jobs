@@ -32,19 +32,6 @@ namespace NuGet.Services.Metadata.Catalog
         private static readonly Lazy<XslCompiledTransform> XslTransformNuSpecCache = new Lazy<XslCompiledTransform>(() => SafeLoadXslTransform(XslTransformNuSpec));
         private static readonly Lazy<XslCompiledTransform> XslTransformNormalizeNuSpecNamespaceCache = new Lazy<XslCompiledTransform>(() => SafeLoadXslTransform(XslTransformNormalizeNuSpecNamespace));
 
-        private static readonly char[] TagTrimChars = { ',', ' ', '\t', '|', ';' };
-
-        public static string[] SplitTags(string original)
-        {
-            var fields = original
-                .Split(TagTrimChars)
-                .Select(w => w.Trim(TagTrimChars))
-                .Where(w => w.Length > 0)
-                .ToArray();
-
-            return fields;
-        }
-
         public static Stream GetResourceStream(string resourceName)
         {
             if (string.IsNullOrEmpty(resourceName))

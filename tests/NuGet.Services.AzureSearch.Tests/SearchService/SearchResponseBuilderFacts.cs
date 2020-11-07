@@ -973,7 +973,7 @@ namespace NuGet.Services.AzureSearch.SearchService
   },
   ""IndexName"": ""search-index"",
   ""IndexOperationType"": ""Get"",
-  ""DocumentKey"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U1-IncludePrereleaseAndSemVer2"",
+  ""DocumentKey"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U-IncludePrereleaseAndSemVer2"",
   ""QueryDuration"": ""00:00:00.2500000"",
   ""AuxiliaryFilesMetadata"": {
     ""Loaded"": ""2019-01-03T11:00:00+00:00"",

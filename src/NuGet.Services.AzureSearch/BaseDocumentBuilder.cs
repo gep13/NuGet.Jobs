@@ -107,7 +107,7 @@ namespace NuGet.Services.AzureSearch
             document.SemVerLevel = package.SemVerLevelKey;
             document.SortableTitle = GetSortableTitle(package.Title, packageId);
             document.Summary = package.Summary;
-            document.Tags = package.Tags == null ? null : Utils.SplitTags(package.Tags);
+            document.Tags = package.Tags == null ? null : TagUtils.SplitTags(package.Tags);
             document.Title = GetTitle(package.Title, packageId);
             document.TokenizedPackageId = packageId;
 

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.1</TargetFrameworks>
 
     <RootNamespace>NuGet.Jobs.Validation</RootNamespace>
     <AssemblyName>NuGet.Services.Validation.Common.Job</AssemblyName>
@@ -11,25 +11,11 @@
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <Compile Remove="CommonTelemetryService.cs" />
-    <Compile Remove="Error.cs" />
-    <Compile Remove="ExceptionExtensions.cs" />
-    <Compile Remove="FeatureFlags\FeatureFlagRefresher.cs" />
-    <Compile Remove="FeatureFlags\FeatureFlagService.cs" />
-    <Compile Remove="FileDownloader.cs" />
-    <Compile Remove="Leases\CloudBlobLeaseService.cs" />
-    <Compile Remove="LoggerDiagnosticsService.cs" />
-    <Compile Remove="LoggerDiagnosticsSource.cs" />
-    <Compile Remove="Storage\ISimpleCloudBlobProvider.cs" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
     <Compile Remove="Storage\IValidatorStateService.cs" />
-    <Compile Remove="Storage\ProcessorPackageFileService.cs" />
-    <Compile Remove="Storage\SerializedValidationIssue.cs" />
-    <Compile Remove="Storage\SimpleCloudBlobProvider.cs" />
     <Compile Remove="Storage\ValidatorStateService.cs" />
     <Compile Remove="Storage\ValidatorStatusExtensions.cs" />
     <Compile Remove="SubscriptionProcessorJob.cs" />
-    <Compile Remove="Validation\IValidatorProvider.cs" />
     <Compile Remove="ValidationJobBase.cs" />
   </ItemGroup>
 
@@ -45,6 +31,9 @@
     <PackageReference Include="NuGet.Packaging">
       <Version>5.8.0-preview.3.6823</Version>
     </PackageReference>
+    <PackageReference Include="NuGetGallery.Core">
+      <Version>4.4.5-jver-sdk-4208860</Version>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
@@ -53,9 +42,6 @@
     </PackageReference>
     <PackageReference Include="NuGet.Services.Storage">
       <Version>2.79.0-jver-netstandard-4208332</Version>
-    </PackageReference>
-    <PackageReference Include="NuGetGallery.Core">
-      <Version>4.4.5-jver-sdk-4208860</Version>
     </PackageReference>
   </ItemGroup>
 

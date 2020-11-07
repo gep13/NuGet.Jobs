@@ -1,6 +1,7 @@
 ﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using Microsoft.AspNetCore.WebUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,7 @@ namespace NuGet.Services.AzureSearch
         {
             // First, encode the raw value for uniqueness.
             var bytes = Encoding.UTF8.GetBytes(rawKey);
-            var unique = HttpServerUtility.UrlTokenEncode(bytes);
+            var unique = WebEncoders.Base64UrlEncode(bytes);
 
             // Then, prepend a string as close to the raw key as possible, for readability.
             var readable = ReplaceUnsafeKeyCharacters(rawKey).TrimStart('_');

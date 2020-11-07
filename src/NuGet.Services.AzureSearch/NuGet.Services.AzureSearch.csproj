@@ -1,35 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.1</TargetFrameworks>
 
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <Compile Remove="Auxiliary2AzureSearch\UpdateDownloadsCommand.cs" />
-    <Compile Remove="Auxiliary2AzureSearch\UpdateOwnersCommand.cs" />
-    <Compile Remove="Auxiliary2AzureSearch\UpdateVerifiedPackagesCommand.cs" />
-    <Compile Remove="AuxiliaryFiles\AuxiliaryFileClient.cs" />
-    <Compile Remove="AuxiliaryFiles\AuxiliaryFileMetadata.cs" />
-    <Compile Remove="AuxiliaryFiles\AuxiliaryFileResult.cs" />
-    <Compile Remove="AuxiliaryFiles\DownloadDataClient.cs" />
-    <Compile Remove="AuxiliaryFiles\IDownloadDataClient.cs" />
-    <Compile Remove="AuxiliaryFiles\IOwnerDataClient.cs" />
-    <Compile Remove="AuxiliaryFiles\IPopularityTransferDataClient.cs" />
-    <Compile Remove="AuxiliaryFiles\IVerifiedPackagesDataClient.cs" />
-    <Compile Remove="AuxiliaryFiles\OwnerDataClient.cs" />
-    <Compile Remove="AuxiliaryFiles\PopularityTransferDataClient.cs" />
-    <Compile Remove="AuxiliaryFiles\SimpleCloudBlobExtensions.cs" />
-    <Compile Remove="AuxiliaryFiles\VerifiedPackagesDataClient.cs" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
     <Compile Remove="AzureSearchJob.cs" />
-    <Compile Remove="AzureSearchTelemetryService.cs" />
-    <Compile Remove="BaseDocumentBuilder.cs" />
-    <Compile Remove="BatchPusher.cs" />
-    <Compile Remove="BatchPusherResult.cs" />
-    <Compile Remove="BlobContainerBuilder.cs" />
     <Compile Remove="Catalog2AzureSearch\AzureSearchCollectorLogic.cs" />
     <Compile Remove="Catalog2AzureSearch\Catalog2AzureSearchCommand.cs" />
     <Compile Remove="Catalog2AzureSearch\CatalogIndexActionBuilder.cs" />
@@ -37,56 +17,8 @@
     <Compile Remove="Catalog2AzureSearch\DocumentFixUpEvaluator.cs" />
     <Compile Remove="Catalog2AzureSearch\ICatalogIndexActionBuilder.cs" />
     <Compile Remove="Catalog2AzureSearch\IDocumentFixUpEvaluator.cs" />
-    <Compile Remove="DatabaseAuxiliaryDataFetcher.cs" />
     <Compile Remove="Db2AzureSearch\Db2AzureSearchCommand.cs" />
-    <Compile Remove="Db2AzureSearch\INewPackageRegistrationProducer.cs" />
-    <Compile Remove="Db2AzureSearch\IPackageEntityIndexActionBuilder.cs" />
-    <Compile Remove="Db2AzureSearch\NewPackageRegistration.cs" />
-    <Compile Remove="Db2AzureSearch\NewPackageRegistrationProducer.cs" />
-    <Compile Remove="Db2AzureSearch\PackageEntityIndexActionBuilder.cs" />
     <Compile Remove="DependencyInjectionExtensions.cs" />
-    <Compile Remove="DocumentUtilities.cs" />
-    <Compile Remove="EntitiesContextFactory.cs" />
-    <Compile Remove="FeatureFlagService.cs" />
-    <Compile Remove="HijackDocumentBuilder.cs" />
-    <Compile Remove="IBaseDocumentBuilder.cs" />
-    <Compile Remove="IBatchPusher.cs" />
-    <Compile Remove="IEntitiesContextFactory.cs" />
-    <Compile Remove="IHijackDocumentBuilder.cs" />
-    <Compile Remove="IndexActions.cs" />
-    <Compile Remove="IndexBuilder.cs" />
-    <Compile Remove="ISearchDocumentBuilder.cs" />
-    <Compile Remove="ISearchIndexActionBuilder.cs" />
-    <Compile Remove="ScoringProfiles\DefaultScoringProfile.cs" />
-    <Compile Remove="SearchDocumentBuilder.cs" />
-    <Compile Remove="SearchIndexActionBuilder.cs" />
-    <Compile Remove="SearchService\AuxiliaryData.cs" />
-    <Compile Remove="SearchService\AuxiliaryDataCache.cs" />
-    <Compile Remove="SearchService\AuxiliaryFileReloader.cs" />
-    <Compile Remove="SearchService\AzureSearchService.cs" />
-    <Compile Remove="SearchService\IAuxiliaryData.cs" />
-    <Compile Remove="SearchService\IAuxiliaryDataCache.cs" />
-    <Compile Remove="SearchService\IndexOperationBuilder.cs" />
-    <Compile Remove="SearchService\ISearchResponseBuilder.cs" />
-    <Compile Remove="SearchService\ISearchService.cs" />
-    <Compile Remove="SearchService\ISearchStatusService.cs" />
-    <Compile Remove="SearchService\Models\AutocompleteResponse.cs" />
-    <Compile Remove="SearchService\Models\AuxiliaryFilesMetadata.cs" />
-    <Compile Remove="SearchService\Models\DebugInformation.cs" />
-    <Compile Remove="SearchService\Models\SearchStatusResponse.cs" />
-    <Compile Remove="SearchService\Models\V2SearchResponse.cs" />
-    <Compile Remove="SearchService\Models\V3SearchResponse.cs" />
-    <Compile Remove="SearchService\SearchParametersBuilder.cs" />
-    <Compile Remove="SearchService\SearchResponseBuilder.cs" />
-    <Compile Remove="SearchService\SearchStatusService.cs" />
-    <Compile Remove="SearchService\SearchTextBuilder.cs" />
-    <Compile Remove="SearchService\SecretRefresher.cs" />
-    <Compile Remove="VersionList\IVersionListDataClient.cs" />
-    <Compile Remove="VersionList\MutableHijackDocumentChanges.cs" />
-    <Compile Remove="VersionList\MutableIndexChanges.cs" />
-    <Compile Remove="VersionList\ResultAndAccessCondition.cs" />
-    <Compile Remove="VersionList\VersionListDataClient.cs" />
-    <Compile Remove="VersionList\VersionLists.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -95,6 +27,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
     <PackageReference Include="Microsoft.Azure.Search">
       <Version>5.0.3</Version>
     </PackageReference>
