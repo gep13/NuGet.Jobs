@@ -9,10 +9,8 @@ param (
     [string]$SemanticVersion = '1.0.0-zlocal',
     [string]$Branch = 'zlocal',
     [string]$CommitSHA,
-    [string]$BuildBranch = '6d1fcf147a7af8b6b4db842494bc7beed3b1d0e9'
+    [string]$BuildBranch = '17e673462931efa5a3ab597c0b1c0e2f005cf152'
 )
-
-$msBuildVersion = 15;
 
 # For TeamCity - If any issue occurs, this script fails the build. - By default, TeamCity returns an exit code of 0 for all powershell scripts, even if they fail
 trap {
@@ -54,7 +52,7 @@ Function Prepare-NuGetCDNRedirect {
         Remove-Item $ZipPackagePath
     }
     
-    Build-Solution $Configuration $BuildNumber -MSBuildVersion "$msBuildVersion" "src\NuGetCDNRedirect\NuGetCDNRedirect.csproj" -Target "Package" -MSBuildProperties "/P:PackageLocation=obj\NuGetCDNRedirect.zip" -SkipRestore
+    Build-Solution -Configuration $Configuration -BuildNumber $BuildNumber -SolutionPath "src\NuGetCDNRedirect\NuGetCDNRedirect.csproj" -Target "Package" -MSBuildProperties "/P:PackageLocation=obj\NuGetCDNRedirect.zip" -SkipRestore
 }
 
 
@@ -87,42 +85,43 @@ Invoke-BuildStep 'Clearing artifacts' { Clear-Artifacts } `
     
 Invoke-BuildStep 'Set version metadata in AssemblyInfo.cs' { `
         $versionMetadata =
-            "src\CopyAzureContainer\Properties\AssemblyInfo.g.cs",
-            "src\NuGetCDNRedirect\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Services.Validation.Orchestrator\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Services.Revalidate\Properties\AssemblyInfo.g.cs",
-            "src\Stats.CollectAzureChinaCDNLogs\Properties\AssemblyInfo.g.cs",
-            "src\Validation.PackageSigning.ProcessSignature\Properties\AssemblyInfo.g.cs",
-            "src\Validation.PackageSigning.ValidateCertificate\Properties\AssemblyInfo.g.cs",
-            "src\Validation.PackageSigning.RevalidateCertificate\Properties\AssemblyInfo.g.cs",
-            "src\Validation.Common.Job\Properties\AssemblyInfo.g.cs",
-            "src\Validation.ScanAndSign.Core\Properties\AssemblyInfo.g.cs",
-            "src\PackageLagMonitor\Properties\AssemblyInfo.g.cs",
-            "src\StatusAggregator\Properties\AssemblyInfo.g.cs",
-            "src\Validation.Symbols.Core\Properties\AssemblyInfo.g.cs",
-            "src\Stats.CDNLogsSanitizer\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Jobs.GitHubIndexer\Properties\AssemblyInfo.g.cs",
-            "src\SplitLargeFiles\Properties\AssemblyInfo.g.cs",
             "src\Catalog\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.ApplicationInsights.Owin\Properties\AssemblyInfo.g.cs",
+            "src\CopyAzureContainer\Properties\AssemblyInfo.g.cs",
+            "src\Gallery.CredentialExpiration\Properties\AssemblyInfo.g.cs",
             "src\Ng\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Services.Metadata.Catalog.Monitoring\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.ApplicationInsights.Owin\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Jobs.Auxiliary2AzureSearch\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Jobs.Catalog2AzureSearch\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Jobs.Catalog2Registration\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Jobs.Common\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Jobs.Db2AzureSearch\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Jobs.GitHubIndexer\Properties\AssemblyInfo.g.cs",
             "src\NuGet.Protocol.Catalog\Properties\AssemblyInfo.g.cs",
             "src\NuGet.Services.AzureSearch\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Jobs.Db2AzureSearch\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Jobs.Catalog2AzureSearch\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Services.Metadata.Catalog.Monitoring\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Services.Revalidate\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Services.SearchService.Core\Properties\AssemblyInfo.g.cs",
             "src\NuGet.Services.SearchService\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Jobs.Auxiliary2AzureSearch\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Jobs.Catalog2Registration\Properties\AssemblyInfo.g.cs",
-            "src\Stats.Warehouse\Properties\AssemblyInfo.g.cs",
-            "src\Validation.Symbols\Properties\AssemblyInfo.g.cs",
-            "src\Validation.PackageSigning.Core\Properties\AssemblyInfo.g.cs",
-            "src\Gallery.CredentialExpiration\Properties\AssemblyInfo.g.cs",
-            "src\NuGet.Jobs.Common\Properties\AssemblyInfo.g.cs",
             "src\NuGet.Services.V3\Properties\AssemblyInfo.g.cs",
+            "src\NuGet.Services.Validation.Orchestrator\Properties\AssemblyInfo.g.cs",
             "src\NuGet.SupportRequests.Notifications\Properties\AssemblyInfo.g.cs",
+            "src\NuGetCDNRedirect\Properties\AssemblyInfo.g.cs",
             "src\PackageHash\Properties\AssemblyInfo.g.cs",
-            "src\Stats.AzureCdnLogs.Common\Properties\AssemblyInfo.g.cs"
+            "src\PackageLagMonitor\Properties\AssemblyInfo.g.cs",
+            "src\SplitLargeFiles\Properties\AssemblyInfo.g.cs",
+            "src\Stats.AzureCdnLogs.Common\Properties\AssemblyInfo.g.cs",
+            "src\Stats.CDNLogsSanitizer\Properties\AssemblyInfo.g.cs",
+            "src\Stats.CollectAzureChinaCDNLogs\Properties\AssemblyInfo.g.cs",
+            "src\Stats.Warehouse\Properties\AssemblyInfo.g.cs",
+            "src\StatusAggregator\Properties\AssemblyInfo.g.cs",
+            "src\Validation.Common.Job\Properties\AssemblyInfo.g.cs",
+            "src\Validation.PackageSigning.Core\Properties\AssemblyInfo.g.cs",
+            "src\Validation.PackageSigning.ProcessSignature\Properties\AssemblyInfo.g.cs",
+            "src\Validation.PackageSigning.RevalidateCertificate\Properties\AssemblyInfo.g.cs",
+            "src\Validation.PackageSigning.ValidateCertificate\Properties\AssemblyInfo.g.cs",
+            "src\Validation.ScanAndSign.Core\Properties\AssemblyInfo.g.cs",
+            "src\Validation.Symbols.Core\Properties\AssemblyInfo.g.cs",
+            "src\Validation.Symbols\Properties\AssemblyInfo.g.cs"
             
         $versionMetadata | ForEach-Object {
             Set-VersionInfo -Path (Join-Path $PSScriptRoot $_) -Version $SimpleVersion -Branch $Branch -Commit $CommitSHA
@@ -137,19 +136,19 @@ Invoke-BuildStep 'Restoring solution packages' { `
 
 Invoke-BuildStep 'Building solution' { 
     param($Configuration, $BuildNumber, $SolutionPath, $SkipRestore)
-    Build-Solution $Configuration $BuildNumber -MSBuildVersion "$msBuildVersion" $SolutionPath -SkipRestore:$SkipRestore `
+    Build-Solution -Configuration $Configuration -BuildNumber $BuildNumber -SolutionPath $SolutionPath -SkipRestore:$SkipRestore `
     } `
     -args $Configuration, $BuildNumber, (Join-Path $PSScriptRoot "NuGet.Jobs.sln"), $SkipRestore `
     -ev +BuildErrors 
 
 Invoke-BuildStep 'Building functional test solution' { 
         $SolutionPath = Join-Path $PSScriptRoot "tests\NuGetServicesMetadata.FunctionalTests.sln"
-        Build-Solution $Configuration $BuildNumber -MSBuildVersion "$msBuildVersion" $SolutionPath -SkipRestore:$SkipRestore `
+        Build-Solution -Configuration $Configuration -BuildNumber $BuildNumber -SolutionPath $SolutionPath -SkipRestore:$SkipRestore `
     } `
     -ev +BuildErrors
 
 Invoke-BuildStep 'Signing the binaries' {
-        Sign-Binaries -Configuration $Configuration -BuildNumber $BuildNumber -MSBuildVersion "15" `
+        Sign-Binaries -Configuration $Configuration -BuildNumber $BuildNumber `
     } `
     -ev +BuildErrors
 
@@ -214,13 +213,13 @@ Invoke-BuildStep 'Creating artifacts' {
             "src\NuGet.Jobs.Catalog2Registration\NuGet.Jobs.Catalog2Registration.nuspec"
 
         Foreach ($Project in $NuspecProjects) {
-            New-Package (Join-Path $PSScriptRoot "$Project") -Configuration $Configuration -BuildNumber $BuildNumber -Version $SemanticVersion -Branch $Branch -MSBuildVersion "$msBuildVersion"
+            New-Package (Join-Path $PSScriptRoot "$Project") -Configuration $Configuration -BuildNumber $BuildNumber -Version $SemanticVersion -Branch $Branch
         }
     } `
     -ev +BuildErrors
 
 Invoke-BuildStep 'Signing the packages' {
-        Sign-Packages -Configuration $Configuration -BuildNumber $BuildNumber -MSBuildVersion $msBuildVersion `
+        Sign-Packages -Configuration $Configuration -BuildNumber $BuildNumber `
     } `
     -ev +BuildErrors
 
