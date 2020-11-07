@@ -45,16 +45,16 @@
   
   <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
     <PackageReference Include="NuGet.Services.Configuration">
-      <Version>2.75.0</Version>
+      <Version>2.79.0-jver-netstandard-4208332</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Services.Messaging.Email">
-      <Version>2.75.0</Version>
+      <Version>2.79.0-jver-netstandard-4208332</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Services.Logging">
-      <Version>2.75.0</Version>
+      <Version>2.79.0-jver-netstandard-4208332</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Services.Sql">
-      <Version>2.75.0</Version>
+      <Version>2.79.0-jver-netstandard-4208332</Version>
     </PackageReference>
   </ItemGroup>
   
