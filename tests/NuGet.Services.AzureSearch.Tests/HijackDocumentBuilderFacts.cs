@@ -32,7 +32,7 @@ namespace NuGet.Services.AzureSearch
   ""value"": [
     {
       ""@search.action"": ""upload"",
-      ""key"": ""windowsazure_storage_7_1_2-alpha-d2luZG93c2F6dXJlLnN0b3JhZ2UvNy4xLjItYWxwaGE""
+      ""key"": ""windowsazure_storage_7_1_2-alpha-d2luZG93c2F6dXJlLnN0b3JhZ2UvNy4xLjItYWxwaGE1""
     }
   ]
 }", json);
@@ -70,7 +70,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.HijackDocument+Latest"",
       ""lastUpdatedFromCatalog"": true,
-      ""key"": ""windowsazure_storage_7_1_2-alpha-d2luZG93c2F6dXJlLnN0b3JhZ2UvNy4xLjItYWxwaGE""
+      ""key"": ""windowsazure_storage_7_1_2-alpha-d2luZG93c2F6dXJlLnN0b3JhZ2UvNy4xLjItYWxwaGE1""
     }
   ]
 }", json);
@@ -164,7 +164,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.HijackDocument+Full"",
       ""lastUpdatedFromCatalog"": false,
-      ""key"": ""windowsazure_storage_7_1_2-alpha-d2luZG93c2F6dXJlLnN0b3JhZ2UvNy4xLjItYWxwaGE""
+      ""key"": ""windowsazure_storage_7_1_2-alpha-d2luZG93c2F6dXJlLnN0b3JhZ2UvNy4xLjItYWxwaGE1""
     }
   ]
 }", json);
@@ -334,7 +334,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.HijackDocument+Full"",
       ""lastUpdatedFromCatalog"": true,
-      ""key"": ""windowsazure_storage_7_1_2-alpha-d2luZG93c2F6dXJlLnN0b3JhZ2UvNy4xLjItYWxwaGE""
+      ""key"": ""windowsazure_storage_7_1_2-alpha-d2luZG93c2F6dXJlLnN0b3JhZ2UvNy4xLjItYWxwaGE1""
     }
   ]
 }", json);

@@ -134,7 +134,7 @@ namespace NuGet.Services.AzureSearch
   ""value"": [
     {
       ""@search.action"": ""upload"",
-      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U-IncludePrereleaseAndSemVer2""
+      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U1-IncludePrereleaseAndSemVer2""
     }
   ]
 }", json);
@@ -168,7 +168,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.SearchDocument+UpdateOwners"",
       ""lastUpdatedFromCatalog"": false,
-      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U-IncludePrereleaseAndSemVer2""
+      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U1-IncludePrereleaseAndSemVer2""
     }
   ]
 }", json);
@@ -200,7 +200,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.SearchDocument+UpdateDownloadCount"",
       ""lastUpdatedFromCatalog"": false,
-      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U-IncludePrereleaseAndSemVer2""
+      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U1-IncludePrereleaseAndSemVer2""
     }
   ]
 }", json);
@@ -248,7 +248,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.SearchDocument+UpdateVersionList"",
       ""lastUpdatedFromCatalog"": true,
-      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U-IncludePrereleaseAndSemVer2""
+      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U1-IncludePrereleaseAndSemVer2""
     }
   ]
 }", json);
@@ -301,7 +301,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.SearchDocument+UpdateVersionListAndOwners"",
       ""lastUpdatedFromCatalog"": true,
-      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U-IncludePrereleaseAndSemVer2""
+      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U1-IncludePrereleaseAndSemVer2""
     }
   ]
 }", json);
@@ -436,7 +436,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.SearchDocument+UpdateLatest"",
       ""lastUpdatedFromCatalog"": true,
-      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U-" + expected + @"""
+      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U1-" + expected + @"""
     }
   ]
 }", json);
@@ -763,7 +763,7 @@ namespace NuGet.Services.AzureSearch
       ""lastUpdatedDocument"": ""2018-12-14T09:30:00+00:00"",
       ""lastDocumentType"": ""NuGet.Services.AzureSearch.SearchDocument+Full"",
       ""lastUpdatedFromCatalog"": false,
-      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U-" + expected + @"""
+      ""key"": ""windowsazure_storage-d2luZG93c2F6dXJlLnN0b3JhZ2U1-" + expected + @"""
     }
   ]
 }", json);
