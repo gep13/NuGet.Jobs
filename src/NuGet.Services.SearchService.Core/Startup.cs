@@ -52,7 +52,10 @@ namespace NuGet.Services.SearchService
             services.AddSingleton(configuration.SecretReaderFactory);
 
             services
-                .AddControllers()
+                .AddControllers(o =>
+                {
+                    o.Filters.Add<ApiExceptionFilterAttribute>();
+                })
                 .AddNewtonsoftJson(o =>
                 {
                     o.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
@@ -62,7 +65,7 @@ namespace NuGet.Services.SearchService
             services.Configure<AzureSearchConfiguration>(Configuration.GetSection(ConfigurationSectionName));
             services.Configure<SearchServiceConfiguration>(Configuration.GetSection(ConfigurationSectionName));
 
-            services.AddApplicationInsightsTelemetry();
+            services.AddApplicationInsightsTelemetry(Configuration.GetValue<string>("ApplicationInsights_InstrumentationKey"));
             services.AddSingleton<ITelemetryInitializer>(new KnownOperationNameEnricher(new[]
             {
                 GetOperationName<SearchController>(HttpMethod.Get, nameof(SearchController.AutocompleteAsync)),
@@ -171,6 +174,12 @@ namespace NuGet.Services.SearchService
 
         private static string GetOperationName<T>(HttpMethod verb, string actionName) where T : ControllerBase
         {
+            const string asyncSuffix = "Async";
+            if (actionName.EndsWith(asyncSuffix))
+            {
+                actionName = actionName.Substring(0, actionName.Length - asyncSuffix.Length);
+            }
+
             return $"{verb} {GetControllerName<T>()}/{actionName}";
         }
 
