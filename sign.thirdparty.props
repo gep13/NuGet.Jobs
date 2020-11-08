@@ -17,6 +17,7 @@
     <ThirdPartyBinaries Include="LibGit2Sharp.dll" />
     <ThirdPartyBinaries Include="Markdig.Signed.dll" />
     <ThirdPartyBinaries Include="MarkdownSharp.dll" />
+    <ThirdPartyBinaries Include="Newtonsoft.Json.Bson.dll" />
     <ThirdPartyBinaries Include="Newtonsoft.Json.dll" />
     <ThirdPartyBinaries Include="Newtonsoft.Json.Schema.dll" />
     <ThirdPartyBinaries Include="Octokit.dll" />
