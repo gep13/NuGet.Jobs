@@ -18,6 +18,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using NuGet.Services.AzureSearch;
 using NuGet.Services.AzureSearch.SearchService;
 using NuGet.Services.Configuration;
@@ -58,8 +59,9 @@ namespace NuGet.Services.SearchService
                 })
                 .AddNewtonsoftJson(o =>
                 {
-                    o.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                    o.SerializerSettings.ContractResolver = new DefaultContractResolver();
                     o.SerializerSettings.Converters.Add(new StringEnumConverter());
+                    o.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 });
 
             services.Configure<AzureSearchConfiguration>(Configuration.GetSection(ConfigurationSectionName));
